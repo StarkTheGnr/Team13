@@ -14,7 +14,6 @@ import java.util.*;
  */
 public class Positive 
 {
-
     public ArrayList<String> positiveArray(ArrayList<String> data)
     {
         for (int i=0 ; i < data.size() ; i++)
@@ -29,5 +28,4 @@ public class Positive
 	    return data ;
 			 
     }
-    
 }
