@@ -30,7 +30,8 @@ public class Positive
                data2.add(data1.get(i));
             }
         }
-			
+	       
+	return data2 ;		
     }
 
 }
