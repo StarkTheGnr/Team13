@@ -4,15 +4,44 @@ import java.util.Random;
 
 public class Functions
 {
-	public static boolean checksorted(char[] array)
+	public static int[] transformToInt(String str)
+	{
+		int[] result = null;
+		
+		String[] split = str.split(",");
+		
+		if(split.length > 0)
+			result = new int[split.length];
+		
+		int k = 0;
+		for(int i = 0; i < split.length; i++)
+		{
+			try
+			{
+				result[k++] = Integer.parseInt(split[i]);
+			}
+			catch (NumberFormatException e)
+			{
+				
+			}
+		}
+		
+		return result;
+	}
+	public static String[] transformToString(String str)
+	{
+		return str.split(",");
+	}
+	
+	public static boolean checksorted(int[] array)
 	{
 		boolean value = true;
 		if (array != null && array.length > 0)
 		{
-			char pre_num = array[0];
+			int pre_num = array[0];
 			for (int i = 1; i < array.length; i++)
 			{
-				char stat = array[i];
+				int stat = array[i];
 				if (stat < pre_num)
 				{
 					value = false;
@@ -53,7 +82,7 @@ public class Functions
 		return counter;
 	}
 
-	public static ArrayList<String> DistnictArray(String[] a)
+	public static ArrayList<String> DistinctArray(String[] a)
 	{
 		ArrayList<String> Arr = new ArrayList<String>();
 		for (int i = 0; i < a.length; i++)
@@ -81,10 +110,10 @@ public class Functions
 		return (double) (Nums[(n - 1) / 2] + Nums[n / 2]) / 2.0;
 	}
 
-	public static void Max_three_number(char[] Array)
+	public static int[] Max_three_number(int[] Array)
 	{
 		int len = Array.length;
-		char[] B = new char[len];
+		int[] B = new int[len];
 		for (int i = 0; i < len; i++)
 		{
 			B[i] = Array[i];
@@ -107,18 +136,19 @@ public class Functions
 			B[k++] = B[len - 1];
 			x = k;
 		}
-		char[] C = new char[x];
+		int[] C = new int[x];
 		for (int i = 0; i < x; i++)
 		{
 			C[i] = B[i];
 		}
-		System.out.println(C[C.length - 1] + "\n" + C[C.length - 2] + "\n" + C[C.length - 3]);
+
+		return new int[] {C[C.length-1], C[C.length - 2], C[C.length - 3]};
 	}
 
-	public static char most_repeated_value(char[] array)
+	public static int most_repeated_value(int[] array)
 	{
 		int counter = 1, tempCount;
-		char Temp, most_repeated = array[0];
+		int Temp, most_repeated = array[0];
 
 		for (int i = 0; i < array.length - 1; i++)
 		{
@@ -138,13 +168,13 @@ public class Functions
 		return most_repeated;
 	}
 
-	public static char[] ROP(char arr[])
+	public static int[] ROP(int arr[])
 	{
 		int i, m = 0, n, flag, counter = 0, c = 0;
 
 		for (int k = 0; k < arr.length; k++)
 		{
-			n = Character.getNumericValue(arr[k]);
+			n = arr[k];
 			flag = 0;
 			m = n / 2;
 			if (n == 0 || n == 1)
@@ -166,11 +196,11 @@ public class Functions
 				}
 			} // end of else
 		}
-		char[] out = new char[counter];
+		int[] out = new int[counter];
 		for (int k = 0; k < arr.length; k++)
 		{
 			flag = 0;
-			n = Character.getNumericValue(arr[k]);
+			n = arr[k];
 			m = n / 2;
 			if (n == 0 || n == 1)
 			{
@@ -215,7 +245,7 @@ public class Functions
 		return out;
 	}
 
-	public static void Get_Min_3_Num(String[] arr)
+	public static int[] Get_Min_3_Num(String[] arr)
 	{
 		int n1 = Integer.valueOf(arr[1]);
 		int n2 = Integer.valueOf(arr[1]);
@@ -246,20 +276,110 @@ public class Functions
 			}
 		}
 
-		System.out.printf("The Minimum Tree Number : %d , %d , %d \n", n1, n2, n3);
+		int[] result = new int[3];
+		result[0] = n1;
+		result[1] = n2;
+		result[2] = n3;
+		
+		return result;
 	}
-	
+
 	public static boolean IsPalindrome(char[] data)
 	{
-		for(int i = 0; i < data.length; i++)
+		for (int i = 0, j = data.length-1; i < data.length && j >= i; i++, j--)
 		{
-			for(int j = data.length; j >= i; j--)
+			if (data[i] != data[j])
+				return false;
+		}
+
+		return true;
+	}
+
+	public static int SmallestPrime(int arr[], int sz)
+	{
+		boolean found = false;
+		boolean pr = true;
+		int ans = 0;
+		for (int i = 0; i < sz; i++)
+		{
+			pr = true;
+			if (arr[i] == 1 || arr[i] == 0)
+				continue;
+			for (int j = 2; j * j <= arr[i]; j++)
 			{
-				if(data[i] != data[j])
-					return false;
+				if (arr[i] % j == 0 && arr[i] != j)
+				{
+					pr = false;
+					break;
+				}
+
+			}
+			if (pr)
+			{
+				if (!found || arr[i] < ans)
+				{
+					found = true;
+					ans = arr[i];
+				}
+			}
+
+		}
+		if (!found)
+			return -1;
+		return ans;
+	}
+
+	public static int getLargest(int arr[])
+	{
+		if (arr.length == 0)
+		{
+			return -1;
+		}
+		int larest = arr[0];
+		for (int i = 0; i < arr.length; ++i)
+		{
+			if (larest < arr[i])
+			{
+				larest = arr[i];
 			}
 		}
-		
-		return true;
+		return larest;
+	}
+
+	public static ArrayList<String> positiveArray(ArrayList<String> data1)
+	{
+		ArrayList<String> data2 = new ArrayList<String>();
+		for (int i = 0; i < data1.size(); i++)
+		{
+			Integer u = Integer.valueOf(data1.get(i));
+			if (u < 0)
+			{
+				data2.add("0");
+			} else
+			{
+				data2.add(data1.get(i));
+			}
+		}
+
+		return data2;
+	}
+
+	public static char[] shift(char[] s)
+	{
+		char[] in2 = new char[s.length];
+		int shift = 1;
+
+		for (int i = 0; i < shift; i++)
+			in2[s.length - shift + i] = s[i];
+
+		for (int i = 0; i < s.length - 1; i++)
+		{
+			if (i + shift > s.length - 1)
+			{
+				break;
+			} else
+				in2[i] = s[i + shift];
+		}
+		return in2;
 	}
 }
