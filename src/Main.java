@@ -30,7 +30,25 @@ public class Main
 	private JLabel lblSP;
 	private JLabel lblLP;
 	private JLabel lblS;
-	private JLabel label;
+	private JLabel lblRA;
+	private JLabel lblR;
+	private JLabel lblSortArray;
+	private JButton btnCheckSorted;
+	private JButton btnCountPrimes;
+	private JButton btnDistinctArray;
+	private JButton btnGetMedian;
+	private JButton btnMTN;
+	private JButton btnMostRepeatedValue;
+	private JButton btnRop;
+	private JButton btnShuffleArray;
+	private JButton btnMinThreeNumbers;
+	private JButton btnPalindromeTest;
+	private JButton btnSmallestPrime;
+	private JButton btnLargestPrime;
+	private JButton btnPositive;
+	private JButton btnShift;
+	private JButton btnReverse;
+	private JButton btnSort;
 
 	/**
 	 * Launch the application.
@@ -66,7 +84,7 @@ public class Main
 	private void initialize()
 	{
 		frame = new JFrame();
-		frame.setBounds(100, 100, 445, 511);
+		frame.setBounds(100, 100, 445, 559);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -83,18 +101,18 @@ public class Main
 		lblSort.setBounds(10, 131, 122, 14);
 		frame.getContentPane().add(lblSort);
 
-		JButton btnNewButton = new JButton("Check Sorted");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnCheckSorted = new JButton("Check Sorted");
+		btnCheckSorted.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0)
 			{
 				boolean res = Functions.checksorted(Functions.transformToInt(txtInput.getText()));
 				lblSort.setText(String.valueOf(res));
 			}
 		});
-		btnNewButton.setBounds(10, 97, 122, 23);
-		frame.getContentPane().add(btnNewButton);
+		btnCheckSorted.setBounds(10, 97, 122, 23);
+		frame.getContentPane().add(btnCheckSorted);
 
-		JButton btnCountPrimes = new JButton("Count Primes");
+		btnCountPrimes = new JButton("Count Primes");
 		btnCountPrimes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -105,7 +123,7 @@ public class Main
 		btnCountPrimes.setBounds(142, 97, 122, 23);
 		frame.getContentPane().add(btnCountPrimes);
 
-		JButton btnDistinctArray = new JButton("Distinct Array");
+		btnDistinctArray = new JButton("Distinct Array");
 		btnDistinctArray.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -116,7 +134,7 @@ public class Main
 		btnDistinctArray.setBounds(276, 97, 122, 23);
 		frame.getContentPane().add(btnDistinctArray);
 
-		JButton btnGetMedian = new JButton("Get Median");
+		btnGetMedian = new JButton("Get Median");
 		btnGetMedian.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0)
 			{
@@ -127,7 +145,7 @@ public class Main
 		btnGetMedian.setBounds(10, 165, 122, 23);
 		frame.getContentPane().add(btnGetMedian);
 
-		JButton btnMTN = new JButton("Max Three Numbers");
+		btnMTN = new JButton("Max Three Numbers");
 		btnMTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -144,7 +162,7 @@ public class Main
 		btnMTN.setBounds(142, 165, 122, 23);
 		frame.getContentPane().add(btnMTN);
 
-		JButton btnMostRepeatedValue = new JButton("Most Repeated Value");
+		btnMostRepeatedValue = new JButton("Most Repeated Value");
 		btnMostRepeatedValue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -156,7 +174,7 @@ public class Main
 		btnMostRepeatedValue.setBounds(276, 165, 122, 23);
 		frame.getContentPane().add(btnMostRepeatedValue);
 
-		JButton btnRop = new JButton("ROP");
+		btnRop = new JButton("ROP");
 		btnRop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -172,7 +190,7 @@ public class Main
 		btnRop.setBounds(10, 233, 122, 23);
 		frame.getContentPane().add(btnRop);
 
-		JButton btnShuffleArray = new JButton("Shuffle Array");
+		btnShuffleArray = new JButton("Shuffle Array");
 		btnShuffleArray.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -183,7 +201,7 @@ public class Main
 		btnShuffleArray.setBounds(142, 233, 122, 23);
 		frame.getContentPane().add(btnShuffleArray);
 
-		JButton btnMinThreeNumbers = new JButton("Min Three Numbers");
+		btnMinThreeNumbers = new JButton("Min Three Numbers");
 		btnMinThreeNumbers.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -200,7 +218,7 @@ public class Main
 		btnMinThreeNumbers.setBounds(276, 233, 122, 23);
 		frame.getContentPane().add(btnMinThreeNumbers);
 
-		JButton btnPalindromeTest = new JButton("Palindrome Test");
+		btnPalindromeTest = new JButton("Palindrome Test");
 		btnPalindromeTest.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -211,7 +229,7 @@ public class Main
 		btnPalindromeTest.setBounds(10, 292, 122, 23);
 		frame.getContentPane().add(btnPalindromeTest);
 
-		JButton btnSmallestPrime = new JButton("Smallest Prime");
+		btnSmallestPrime = new JButton("Smallest Prime");
 		btnSmallestPrime.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -223,7 +241,7 @@ public class Main
 		btnSmallestPrime.setBounds(142, 292, 122, 23);
 		frame.getContentPane().add(btnSmallestPrime);
 
-		JButton btnLargestPrime = new JButton("Largest Prime");
+		btnLargestPrime = new JButton("Largest Prime");
 		btnLargestPrime.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -235,7 +253,7 @@ public class Main
 		btnLargestPrime.setBounds(276, 292, 122, 23);
 		frame.getContentPane().add(btnLargestPrime);
 
-		JButton btnPositive = new JButton("Positive");
+		btnPositive = new JButton("Positive");
 		btnPositive.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -246,7 +264,7 @@ public class Main
 		btnPositive.setBounds(10, 356, 122, 23);
 		frame.getContentPane().add(btnPositive);
 
-		JButton btnShift = new JButton("Shift");
+		btnShift = new JButton("Shift");
 		btnShift.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -258,7 +276,37 @@ public class Main
 		frame.getContentPane().add(btnShift);
 
 		JButton btnRunAll = new JButton("Run All");
-		btnRunAll.setBounds(276, 356, 122, 23);
+		btnRunAll.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				try
+				{
+					btnCountPrimes.doClick();
+					btnDistinctArray.doClick();
+					btnGetMedian.doClick();
+					btnLargestPrime.doClick();
+					btnMinThreeNumbers.doClick();
+					btnMostRepeatedValue.doClick();
+					btnMTN.doClick();
+					btnCheckSorted.doClick();
+					btnPalindromeTest.doClick();
+					btnPositive.doClick();
+					btnReverse.doClick();
+					btnRop.doClick();
+					btnShift.doClick();
+					btnShuffleArray.doClick();
+					btnSmallestPrime.doClick();
+					btnSort.doClick();
+					
+					lblRA.setText("Success!");
+				}
+				catch(Exception err)
+				{
+					lblRA.setText("Failed!");
+				}
+			}
+		});
+		btnRunAll.setBounds(142, 415, 122, 23);
 		frame.getContentPane().add(btnRunAll);
 
 		lblPT = new JLabel("N/A");
@@ -313,8 +361,48 @@ public class Main
 		lblS.setBounds(142, 390, 122, 14);
 		frame.getContentPane().add(lblS);
 		
-		label = new JLabel("N/A");
-		label.setBounds(276, 390, 122, 14);
-		frame.getContentPane().add(label);
+		lblRA = new JLabel("N/A");
+		lblRA.setBounds(142, 449, 122, 14);
+		frame.getContentPane().add(lblRA);
+		
+		btnReverse = new JButton("Reverse");
+		btnReverse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				int[] res = Functions.reverse_arr(Functions.transformToInt(txtInput.getText()));
+				String result = "";
+				for(int i = 0; i < res.length; i++)
+				{
+					result += res[i] + ",";
+				}
+				lblR.setText(result);
+			}
+		});
+		btnReverse.setBounds(276, 356, 122, 23);
+		frame.getContentPane().add(btnReverse);
+		
+		lblR = new JLabel("N/A");
+		lblR.setBounds(276, 390, 122, 14);
+		frame.getContentPane().add(lblR);
+		
+		btnSort = new JButton("Sort");
+		btnSort.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				int[] res = Functions.Sort(Functions.transformToInt(txtInput.getText()));
+				String result = "";
+				for(int i = 0; i < res.length; i++)
+				{
+					result += res[i] + ",";
+				}
+				lblSortArray.setText(result);
+			}
+		});
+		btnSort.setBounds(10, 415, 122, 23);
+		frame.getContentPane().add(btnSort);
+		
+		lblSortArray = new JLabel("N/A");
+		lblSortArray.setBounds(10, 449, 122, 14);
+		frame.getContentPane().add(lblSortArray);
 	}
 }

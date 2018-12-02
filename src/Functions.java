@@ -7,32 +7,33 @@ public class Functions
 	public static int[] transformToInt(String str)
 	{
 		int[] result = null;
-		
+
 		String[] split = str.split(",");
-		
-		if(split.length > 0)
+
+		if (split.length > 0)
 			result = new int[split.length];
-		
+
 		int k = 0;
-		for(int i = 0; i < split.length; i++)
+		for (int i = 0; i < split.length; i++)
 		{
 			try
 			{
 				result[k++] = Integer.parseInt(split[i]);
-			}
+			} 
 			catch (NumberFormatException e)
 			{
-				
+				return new int[0];
 			}
 		}
-		
+
 		return result;
 	}
+
 	public static String[] transformToString(String str)
 	{
 		return str.split(",");
 	}
-	
+
 	public static boolean checksorted(int[] array)
 	{
 		boolean value = true;
@@ -142,7 +143,7 @@ public class Functions
 			C[i] = B[i];
 		}
 
-		return new int[] {C[C.length-1], C[C.length - 2], C[C.length - 3]};
+		return new int[] { C[C.length - 1], C[C.length - 2], C[C.length - 3] };
 	}
 
 	public static int most_repeated_value(int[] array)
@@ -280,13 +281,13 @@ public class Functions
 		result[0] = n1;
 		result[1] = n2;
 		result[2] = n3;
-		
+
 		return result;
 	}
 
 	public static boolean IsPalindrome(char[] data)
 	{
-		for (int i = 0, j = data.length-1; i < data.length && j >= i; i++, j--)
+		for (int i = 0, j = data.length - 1; i < data.length && j >= i; i++, j--)
 		{
 			if (data[i] != data[j])
 				return false;
@@ -381,5 +382,43 @@ public class Functions
 				in2[i] = s[i + shift];
 		}
 		return in2;
+	}
+
+	public static int[] reverse_arr(int[] arg)
+	{
+		int[] arr = Arrays.copyOf(arg, arg.length);
+
+		int temp;
+		int start = 0;
+		int end = arr.length - 1;
+
+		while (start < end)
+		{
+
+			temp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = temp;
+
+			start++;
+			end--;
+		}
+
+		return arr;
+	}
+
+	public static int[] Sort(int[] arr)
+	{
+		int[] x = Arrays.copyOf(arr, arr.length);
+		int s = x.length;
+		for (int i = 1; i < s; i++)
+		{
+			for (int k = i; k > 0 && x[k - 1] > x[k]; k--)
+			{
+				int temp = x[k];
+				x[k] = x[k - 1];
+				x[k - 1] = temp;
+			}
+		}
+		return x;
 	}
 }
