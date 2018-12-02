@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author zizoa
+ *
+ */
+module Average {
+}
