@@ -19,8 +19,7 @@ public class Functions
 			try
 			{
 				result[k++] = Integer.parseInt(split[i]);
-			} 
-			catch (NumberFormatException e)
+			} catch (NumberFormatException e)
 			{
 				return new int[0];
 			}
@@ -420,5 +419,18 @@ public class Functions
 			}
 		}
 		return x;
+	}
+
+	public static int GetAverage(int[] arr)
+	{
+		int total = 0;
+		int average = 0;
+		for (int i = 0; i < arr.length - 1; i++)
+		{
+			total += arr[i];
+		}
+		average = total / arr.length;
+		
+		return average;
 	}
 }
