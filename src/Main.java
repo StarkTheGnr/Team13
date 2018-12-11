@@ -49,6 +49,7 @@ public class Main
 	private JButton btnShift;
 	private JButton btnReverse;
 	private JButton btnSort;
+	private JLabel lblAverage;
 
 	/**
 	 * Launch the application.
@@ -404,5 +405,20 @@ public class Main
 		lblSortArray = new JLabel("N/A");
 		lblSortArray.setBounds(10, 449, 122, 14);
 		frame.getContentPane().add(lblSortArray);
+		
+		lblAverage = new JLabel("N/A");
+		lblAverage.setBounds(276, 449, 122, 14);
+		frame.getContentPane().add(lblAverage);
+		
+		JButton btnAverage = new JButton("Average");
+		btnAverage.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int res = Functions.GetAverage(Functions.transformToInt(txtInput.getText()));
+				
+				lblAverage.setText(String.valueOf(res));
+			}
+		});
+		btnAverage.setBounds(276, 415, 122, 23);
+		frame.getContentPane().add(btnAverage);
 	}
 }
